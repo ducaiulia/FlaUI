@@ -272,6 +272,20 @@ namespace FlaUI.Core.Input
         }
 
         /// <summary>
+        /// Drag the mouse from a point to another
+        /// </summary>
+        /// <param name="from">Starting point of the drag</param>
+        /// <param name="to">Ending point of the drag</param>
+        public static void Drag(Point from, Point to)
+        {
+            Position = from;
+            Down(MouseButton.Left);
+            Position = to;
+            Wait.UntilInputIsProcessed();
+            Up(MouseButton.Left);
+        }
+
+        /// <summary>
         /// Drags the mouse from the starting point with the given distance.
         /// </summary>
         /// <param name="mouseButton">The mouse button to use for dragging.</param>
